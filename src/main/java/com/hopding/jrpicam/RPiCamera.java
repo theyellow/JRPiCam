@@ -4,7 +4,12 @@ import java.awt.image.BufferedImage;
 import java.io.BufferedInputStream;
 import java.io.File;
 import java.io.IOException;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 import javax.imageio.ImageIO;
 
@@ -54,6 +59,8 @@ public class RPiCamera {
 	private Process						p;
 	private static final int DEFAULT_WIDTH  = 500;
 	private static final int DEFAULT_HEIGHT = 500;
+	
+	private static final String RASPISTILL = System.getProperty("com.hopding.jrpicam.raspistill", "raspistill");
 								
 	/**
 	 * Creates new RPiCamera. The resulting RPiCamera's save directory will be set to
@@ -74,7 +81,7 @@ public class RPiCamera {
 	public RPiCamera(String saveDir) throws FailedToRunRaspistillException {
 		this.saveDir = saveDir;
 		try {
-			pb = new ProcessBuilder("raspistill");
+			pb = new ProcessBuilder(RASPISTILL);
 			pb.start();
 		} catch (IOException e) {
 			// The IOException was most likely thrown because raspistill isn't installed
@@ -121,7 +128,7 @@ public class RPiCamera {
 	 */
 	public File takeStill(String pictureName, int width, int height) throws IOException, InterruptedException {
 		List<String> command = new ArrayList<>();
-		command.add("raspistill");
+		command.add(RASPISTILL);
 		command.add("-o");
 		command.add(saveDir + File.separator + pictureName);
 		command.add("-w");
@@ -204,7 +211,7 @@ public class RPiCamera {
 	 */
 	public BufferedImage takeBufferedStill(int width, int height) throws IOException, InterruptedException {
 		List<String> command = new ArrayList<>();
-		command.add("raspistill");
+		command.add(RASPISTILL);
 		command.add("-o");
 		command.add("-v");
 		command.add("-w");
@@ -504,7 +511,7 @@ public class RPiCamera {
 			pictureName = "%04d" + pictureName;
 			
 		List<String> command = new ArrayList<>();
-		command.add("raspistill");
+		command.add(RASPISTILL);
 		command.add("-tl");
 		command.add("" + time);
 		command.add("-o");
@@ -568,7 +575,7 @@ public class RPiCamera {
 	
 // 	public String getCameraSettings() {
 // 		List<String> command = new ArrayList<String>();
-// 		command.add("raspistill");
+// 		command.add(RASPISTILL);
 // 		command.add("-set");
 // 		pb = new ProcessBuilder(command);
 // 		prevCommand = command.toString();
