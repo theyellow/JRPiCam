@@ -60,7 +60,7 @@ public class RPiCamera {
 	private static final int DEFAULT_WIDTH  = 500;
 	private static final int DEFAULT_HEIGHT = 500;
 	
-	private static final String RASPISTILL = System.getProperty("com.hopding.jrpicam.raspistill", "raspistill");
+	private static final String RASPISTILL[] = System.getProperty("com.hopding.jrpicam.raspistill", "raspistill").split(" ");
 								
 	/**
 	 * Creates new RPiCamera. The resulting RPiCamera's save directory will be set to
@@ -88,7 +88,7 @@ public class RPiCamera {
 			// and/or configured properly, so throw FailedToRunRaspistillException to 
 			// indicate that.
 			throw new FailedToRunRaspistillException(
-					"RPiCamera failed to run raspistill. The JRPiCam library relies on"
+					"RPiCamera failed to run " + pb.command() + ". The JRPiCam library relies on"
 							+ "raspistill to function. Please ensure it is installed and configured"
 							+ "on your system.");
 		}
@@ -128,7 +128,7 @@ public class RPiCamera {
 	 */
 	public File takeStill(String pictureName, int width, int height) throws IOException, InterruptedException {
 		List<String> command = new ArrayList<>();
-		command.add(RASPISTILL);
+		command.addAll(Arrays.asList(RASPISTILL));
 		command.add("-o");
 		command.add(saveDir + File.separator + pictureName);
 		command.add("-w");
@@ -211,7 +211,7 @@ public class RPiCamera {
 	 */
 	public BufferedImage takeBufferedStill(int width, int height) throws IOException, InterruptedException {
 		List<String> command = new ArrayList<>();
-		command.add(RASPISTILL);
+		command.addAll(Arrays.asList(RASPISTILL));
 		command.add("-o");
 		command.add("-v");
 		command.add("-w");
@@ -511,7 +511,7 @@ public class RPiCamera {
 			pictureName = "%04d" + pictureName;
 			
 		List<String> command = new ArrayList<>();
-		command.add(RASPISTILL);
+		command.addAll(Arrays.asList(RASPISTILL));
 		command.add("-tl");
 		command.add("" + time);
 		command.add("-o");
