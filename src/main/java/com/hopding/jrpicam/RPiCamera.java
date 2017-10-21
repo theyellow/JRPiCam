@@ -54,7 +54,7 @@ public class RPiCamera {
 	
 	private String						prevCommand;
 	private String						saveDir;
-	private HashMap<String, String[]>	options	= new HashMap<>();
+	private Map<String, String[]>	options	= new HashMap<>();
 	private ProcessBuilder				pb;
 	private Process						p;
 	private static final int DEFAULT_WIDTH  = 500;
@@ -979,6 +979,14 @@ public class RPiCamera {
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////// APPLICATION SPECIFIC SETTINGS //////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////	
+	
+	public Map<String, String[]> getOptions() {
+		return options;
+	}
+	
+	public void setOptions(Map<String, String[]> options) {
+		this.options = options;
+	}
 	
 	/**
 	 * Sets width of images taken by RPiCamera. Note that this setting
