@@ -12,7 +12,7 @@ instructions can be found [here] (https://www.raspberrypi.org/documentation/conf
 # Using JRPiCam
 Deprecated: To use JRPiCam in your project, just download and unzip the most recent [release](https://github.com/Hopding/JRPiCam/releases/tag/v1.1.1), then add the `jrpicam-1.1.1.jar` file to your project's build path.
 
-For now: build with `mvn compile verify`and use jenerated jar from target-folder
+For now: build with `mvn compile verify`and use generated jar from target-folder
 
 The core component of JRPiCam is the `RPiCamera` class, which can be instantiated as follows:
 ```java
