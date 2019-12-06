@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.org/theyellow/JRPiCam.svg?branch=master)](https://travis-ci.org/theyellow/JRPiCam)
 
 # JRPiCam fork - including support for maven and raspivid-support from JackJan4 fork
 JRPiCam is a Java API that allows Java applications running on a Raspberry Pi to access the Raspberry Pi Camera. JRPiCam
