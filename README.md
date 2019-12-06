@@ -1,6 +1,6 @@
 [![Build Status](https://travis-ci.org/theyellow/JRPiCam.svg?branch=master)](https://travis-ci.org/theyellow/JRPiCam)
 
-# JRPiCam fork - including support for maven and raspivid-support from JackJan4 fork
+# JRPiCam fork - including support for maven and raspivid-support from JackJan4 fork, gradle-update from mikelduke also included
 JRPiCam is a Java API that allows Java applications running on a Raspberry Pi to access the Raspberry Pi Camera. JRPiCam
 achieves this functionality by using the ProcessBuilder class to run the native raspistill and raspivid programs on the RPi. This means that 
 JRPiCam has all the same functionality as them, plus additional Java specific features.
@@ -11,6 +11,7 @@ instructions can be found [here] (https://www.raspberrypi.org/documentation/conf
 
 # Using JRPiCam
 Deprecated: To use JRPiCam in your project, just download and unzip the most recent [release](https://github.com/Hopding/JRPiCam/releases/tag/v1.1.1), then add the `jrpicam-1.1.1.jar` file to your project's build path.
+
 For now: build with `mvn compile verify`and use jenerated jar from target-folder
 
 The core component of JRPiCam is the `RPiCamera` class, which can be instantiated as follows:
