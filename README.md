@@ -1,14 +1,12 @@
 [![Release](https://jitpack.io/v/Hopding/JRPiCam.svg)](https://jitpack.io/#Hopding/JRPiCam)
 # JRPiCam
 JRPiCam is a Java API that allows Java applications running on a Raspberry Pi to access the Raspberry Pi Camera. JRPiCam
-achieves this functionality by using the [`ProcessBuilder`](https://docs.oracle.com/javase/7/docs/api/java/lang/ProcessBuilder.html) class to run the native `raspistill` program on the RPi. This means that 
-JRPiCam has all the same functionality as `raspistill`, plus additional Java specific features.
+achieves this functionality by using the ProcessBuilder class to run the native raspistill and raspivid programs on the RPi. This means that 
+JRPiCam has all the same functionality as them, plus additional Java specific features.
 
-<img src="http://hopding.com/img/pi-cam.jpg" width="500" alt="Raspberry Pi Camera Photo">
-
-Because JRPiCam works by invoking the `raspistill` software, it is important that your RPi be properly configured to run 
-`raspistill`. The appropriate settings may be configured by running `raspi-config` in the terminal of your RPi. Further 
-instructions can be found [here](https://www.raspberrypi.org/documentation/configuration/camera.md).
+Because JRPiCam works by invoking the raspistill and raspivid software, it is important that your RPi be properly configured to run 
+both. The appropriate settings may be configured by running `raspi-config` in the terminal of your RPi. Further 
+instructions can be found [here] (https://www.raspberrypi.org/documentation/configuration/camera.md).
 
 # Using JRPiCam
 To use JRPiCam in your project, just download and unzip the most recent [release](https://github.com/Hopding/JRPiCam/releases/tag/v1.1.1), then add the `jrpicam-1.1.1.jar` file to your project's build path.
