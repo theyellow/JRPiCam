@@ -1,3 +1,8 @@
 /.idea/*
 /build/*
 /.gradle/*
+/bin/*
+/target/
+/.classpath
+/.project
+/.settings/*
