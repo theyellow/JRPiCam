@@ -1,5 +1,15 @@
 [![Build Status](https://travis-ci.org/theyellow/JRPiCam.svg?branch=master)](https://travis-ci.org/theyellow/JRPiCam) [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=io.github.theyellow%3Ajrpicam&metric=alert_status)](https://sonarcloud.io/dashboard?id=io.github.theyellow%3Ajrpicam)
 
+## Version history
+
+v1.1.2 adds 
+- `setAWBGains` (by Sciss/JRPiCam)
+- `mvn build` support
+- raspivid support (by JackieJan4/JRPiCam)
+- gradle build update (by mikelduke/JRPiCam)
+- travis - integration
+- sonar - integration 
+
 # JRPiCam fork - including support for maven and raspivid-support from JackJan4 fork, gradle-update from mikelduke also included
 JRPiCam is a Java API that allows Java applications running on a Raspberry Pi to access the Raspberry Pi Camera. JRPiCam
 achieves this functionality by using the ProcessBuilder class to run the native raspistill and raspivid programs on the RPi. This means that 
