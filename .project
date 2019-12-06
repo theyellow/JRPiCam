@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
 	<name>jrpicam</name>
-	<comment>Project JRPiCam created by Buildship.</comment>
+	<comment>Project JRPiCam - a wrapper for raspistill and raspivid</comment>
 	<projects>
 	</projects>
 	<buildSpec>
