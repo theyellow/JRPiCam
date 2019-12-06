@@ -1,5 +1,5 @@
-[![Release](https://jitpack.io/v/Hopding/JRPiCam.svg)](https://jitpack.io/#Hopding/JRPiCam)
-# JRPiCam
+
+# JRPiCam fork - including support for maven and raspivid-support from JackJan4 fork
 JRPiCam is a Java API that allows Java applications running on a Raspberry Pi to access the Raspberry Pi Camera. JRPiCam
 achieves this functionality by using the ProcessBuilder class to run the native raspistill and raspivid programs on the RPi. This means that 
 JRPiCam has all the same functionality as them, plus additional Java specific features.
@@ -9,7 +9,8 @@ both. The appropriate settings may be configured by running `raspi-config` in th
 instructions can be found [here] (https://www.raspberrypi.org/documentation/configuration/camera.md).
 
 # Using JRPiCam
-To use JRPiCam in your project, just download and unzip the most recent [release](https://github.com/Hopding/JRPiCam/releases/tag/v1.1.1), then add the `jrpicam-1.1.1.jar` file to your project's build path.
+Deprecated: To use JRPiCam in your project, just download and unzip the most recent [release](https://github.com/Hopding/JRPiCam/releases/tag/v1.1.1), then add the `jrpicam-1.1.1.jar` file to your project's build path.
+For now: build with `mvn compile verify`and use jenerated jar from target-folder
 
 The core component of JRPiCam is the `RPiCamera` class, which can be instantiated as follows:
 ```java
@@ -46,12 +47,12 @@ Capturing images this way is much faster than saving them to memory and then loa
 have to do with the `takeStill()` method), and is particularly useful if you don't want to save the photo in the RPi at all (perhaps you want to send it over a network and save it on a remote server).
 
 # Wiki
-Additional code examples and information can be found in the `src/main/java/com/hopding/jrpicam/examples` directory and on the [JRPiCam wiki](https://github.com/Hopding/JRPiCam/wiki).
+Additional code examples and information can be found in the `src/main/java/com/hopding/jrpicam/examples` directory and on the original [JRPiCam wiki](https://github.com/Hopding/JRPiCam/wiki).
 
 # Javadoc
 The Javadoc for the project is hosted online [here](http://hopding.com/docs/jrpicam/). It can also be built manually with a Gradle task; see [below](https://github.com/Hopding/JRPiCam#building-the-project).
 
-# Examples
+# Examples (Deprecated)
 The releases contain a number of example JARs (pre-built JARs of the classes in the `src/main/java/com/hopding/jrpicam/examples` directory) that can be executed on the RPi's terminal:
 
 * `demo-view-1.1.1.jar`
@@ -70,7 +71,7 @@ for example:
 $ java -jar examples/demo-view-1.1.1.jar
 ```
 
-# Building the Project
+# Building the Project (maven info is missing for now)
 JRPiCam is structured as a Gradle project. It contains tasks to build the library JAR, the example JARs, and the Javadoc. To build the project, you must first clone or download the project repository, and open a terminal therein. Then, assuming you're using Windows' Powershell or Unix's Bash:
 
 * To build the main library JAR (`jrpicam-1.1.1.jar`):
