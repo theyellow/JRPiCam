@@ -210,8 +210,8 @@ public class RPiCamera {
 	 * @throws InterruptedException
 	 */
 	public BufferedImage takeBufferedStill(int width, int height) throws IOException, InterruptedException {
-		List<String> command = new ArrayList<>();
-		command.addAll(Arrays.asList(RASPISTILL));
+		List<String> command = new ArrayList<String>();
+		command.add("raspistill");
 		command.add("-o");
 		command.add("-v");
 		command.add("-w");
@@ -1204,14 +1204,70 @@ public class RPiCamera {
 		return this;
 	}
 
+    public void setTimestampOff() {
+        options.put("timestamp", null);
+    }
+
+    
+    
+    
+    ///////////////////////////////////////////////////////////////////////////////
+    ///////////////// END OF IMAGE SPECIFIC SETTINGS       ////////////////////////
+    ///////////////////////////////////////////////////////////////////////////////	
+    
+    
+    
+    
+    
+    
+    
     /**
-     * Disables effects of {@link #setTimestampOn()}. This is default state of {@link RPiCamera}.
+     * Records a H264-video with the given resolution
+     *
+     * @param videoName - The name of the output video file
+     * @param width - The video width
+     * @param height - The video height
+     * @param length - The video length in milliseconds
+     * @param wait - Blocks the thread till the video is finished
+     * @return - The File of the output video
+     * @throws IOException
+     * @throws InterruptedException
      */
-	public RPiCamera setTimestampOff() {
-		options.put("timestamp", null);
-		return this;
+    public File recordVideo(String videoName, int width, int height, int length, boolean wait) throws IOException, InterruptedException {
+        List<String> command = new ArrayList<>();
+        command.add("raspivid");
+        command.add("-o");
+        command.add(saveDir + File.separator + videoName);
+        command.add("-w");
+        command.add("" + width);
+        command.add("-h");
+        command.add("" + height);
+        command.add("-t");
+        command.add("" + length);
+        for (Map.Entry<String, String[]> entry : options.entrySet()) {
+            if (entry.getValue() != null && !"width".equals(entry.getKey()) && !"height".equals(entry.getKey())) {
+                for (String s : entry.getValue()) {
+                    command.add(s);
+                }
+            }
+        }
+        prevCommand = command.toString();
+        pb = new ProcessBuilder(command);
+
+//		System.out.println("Executed this command:\n\t" + command.toString());
+//		pb.redirectErrorStream(true);
+//		pb.redirectOutput(
+//				new File(System.getProperty("user.home") + File.separator +
+//						"Desktop" + File.separator + "RPiCamera.out"));
+        p = pb.start();
+
+        if (wait) {
+            p.waitFor();
+        }
+        return new File(saveDir + File.separator + videoName);
 	}
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-///////////////////////////////////// END OF APPLICATION SPECIFIC SETTINGS /////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////	
+
+///////////////////////////////////////////////////////////////////////////////
+///////////////// END OF APPLICATION SPECIFIC SETTINGS ////////////////////////
+///////////////////////////////////////////////////////////////////////////////	
 }
