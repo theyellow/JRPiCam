@@ -4,7 +4,12 @@ import java.awt.image.BufferedImage;
 import java.io.BufferedInputStream;
 import java.io.File;
 import java.io.IOException;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 import javax.imageio.ImageIO;
 
@@ -49,7 +54,7 @@ public class RPiCamera {
 	
 	private String						prevCommand;
 	private String						saveDir;
-	private HashMap<String, String[]>	options	= new HashMap<>();
+	private Map<String, String[]> options = new HashMap<>();
 	private ProcessBuilder				pb;
 	private Process						p;
 	private static final int DEFAULT_WIDTH  = 500;
