@@ -27,6 +27,6 @@
 	
 	<scm>
 		<url>scm:git:git@github.com:theyellow/jrpicam.git</url>
-		<developerConnection>scm:git:git@github.com:theyellow/jrpicam.git</developerConnection>
+		<developerConnection>scm:git:ssh://git@github.com/theyellow/jrpicam.git</developerConnection>
 	</scm>
 </project>
